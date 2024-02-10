@@ -1,0 +1,137 @@
+/*-........................... Dashboard Admin ------------------*/
+
+.header{
+    background-color: rgb(188, 226, 226);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 50px;
+    /* margin-top: 0px; */
+    /* padding-right: 5rem; */
+    margin-bottom: 0;
+}
+
+  
+.signup_page{
+    background-color: rgb(188, 226, 226);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    justify-items: center;
+    padding: 20px;
+    margin: 50px;
+    margin-top: 0;
+
+  }
+
+  /* .............................DashBoard Page ................................ */
+  .admin-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ebc8c8;
+    margin: 50px;
+    padding: 50px;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .admin_postDashboard{
+    background: #ebc8c8;
+    padding: 20px;
+    margin: 50px;
+    margin-top: 0;
+  }
+
+  .postpage{
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr;
+    justify-items: center;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .admin-addpost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #05141f;
+    margin-bottom: 0;
+  }
+
+
+  .admin-posts {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-post-controls form {
+    display: inline-block;
+  }
+  
+  .admin-post-controls .btn  {
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--gray-light);
+    border: 0;
+    text-decoration: none;
+    font-size: .8rem;
+    padding: 4px 8px;
+    line-height: 2;
+    background-color: #b30000;
+  }
+  
+  .admin-posts li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+
+
+  /* SeachBar */
+  .searchBar {
+    visibility: hidden;
+    transform: translateY(-100px);
+    background-color: var(--black);
+    padding: 4px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  
+  
+  .searchBar.open {
+    transform: translateY(0);
+    transition: transform 0.1s;
+  }
+  
+  .searchBar input {
+    margin: 0;
+    border: 0;
+  }
+  
+  #searchClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--gray-light);
+    padding: 15px;
+  }
+  
+  
+  .pagination {
+    font-size: 1.3rem;
+    color: var(--gray);
+    text-decoration: none;
+    margin-top: 40px;
+    display: inline-block;
+  }
+  
+  .pagination:hover {
+    color: var(--black);
+  }

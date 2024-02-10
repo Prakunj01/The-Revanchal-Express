@@ -1,0 +1,65 @@
+<head>
+    <link rel="stylesheet" href="/css/cards.css">
+</head>
+
+<% function truncateText(text, maxLength) {
+    const words = text.split(' ');
+    const truncatedWords = words.slice(0, maxLength);
+    return truncatedWords.join(' ');
+  } %>
+
+<% function formatDate(date) {
+    const options = {
+      weekday: 'short', // Short weekday name (e.g., Sun)
+      year: 'numeric',
+      month: 'short', // Short month name (e.g., Jan)
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // Use 12-hour clock
+      timeZone: 'UTC', // Specify the UTC timezone
+    };
+    
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    return formattedDate;
+  } %>
+
+
+<div class="horizontalCard">
+    <% if (posts.length > 0) { %>
+
+            <% posts.forEach(post => { %>
+
+                <div class="cardBody">
+
+                    <div class="cardImage">
+                        <!-- Display the image -->
+                        <img src="/uploads/<%= post.image %>" alt="Image" height="150px" width="220px">
+                    </div> 
+
+                    <div class="cardData" id="horizontal-line">
+                            <h4><%= truncateText(post.body, 20)%></h4>
+                            <p id="post_body"><%= truncateText(post.body, 30) %>...</p>
+                            <div class="cardMeta">
+                                <p >
+                                    <span class="post-date"> <%= formatDate(post.createdAt) %></span> 
+    
+                                   
+                                </p>
+                    
+                                <a class="a-tag" href="/post/<%= post._id %>">
+                                    <button class="read-more-link">Read More</button>
+                                </a>
+                                
+                            </div>      
+                    </div>
+                </div>
+
+            <% }); %>
+               
+    <% } else { %>
+        <div class="NoArticles">
+            <p>No articles found in the category.</p>
+        </div>
+    <% } %>
+</div>

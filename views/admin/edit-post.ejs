@@ -1,0 +1,60 @@
+<a href="/dashboard">&larr; Back</a>
+<div class="admin-title">
+  <h2>View / Edit Post</h2>
+
+  <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete" class="btn-delete btn">
+  </form>
+
+</div>
+
+<form action="/edit-post/<%= data._id %>" method="POST" enctype="multipart/form-data">
+   <!-- Add enctype="multipart/form-data" for file uploads -->
+
+  <label for="category">Category:</label>
+  <select name="category" id="category">
+    <% categorys.forEach(category => { %>
+      <option value="<%= category %>" <% if(data.categorys === category) { %>selected<% } %>> <%= category %> </option> 
+      <!-- Set selected attribute for current category -->
+    <% }); %>
+  </select>
+
+  <label for="title"><b>Title</b></label>
+  <input type="text" placeholder="Post Title" name="title" value="<%= data.title %>">
+
+  <label for="body"><b>Content</b></label>
+  <textarea name="body" cols="50" rows="10"><%= data.body %></textarea>
+
+  <label for="autherName"><b>Auther</b></label>
+  <input type="text" placeholder="Author Name" name="autherName" value="<%= data.autherName %>"> 
+  <!-- Corrected typo in the name attribute -->
+  
+  
+  <div class="form-group">
+    <label for="image"> Select Image</label>
+    <input type="file" name="image" class="form-control-file custom-file-input" id="image" onchange="previewImage(event)">
+    <img id="image-preview" src="/uploads/<%= data.image %>" width="200px" height="120px" />
+  </div>
+  <input type="hidden" name="old_image" value="<%= data.image %>"/>
+  
+
+  <input type="submit" value="Submit" class="btn">
+
+</form>
+
+<script>
+  function previewImage(event) {
+  const input = event.target;
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const preview = document.getElementById('image-preview');
+      preview.src = e.target.result;
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+</script>

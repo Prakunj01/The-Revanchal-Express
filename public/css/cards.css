@@ -1,0 +1,54 @@
+.horizontalCard{
+    background-color: aqua;
+    /* border: 3px solid brown; */
+
+
+}
+.cardBody{
+background-color: aliceblue;
+display: flex;
+height: 10rem;
+/* margin: 2rem 1rem; */
+padding: 2rem 1rem;
+border-bottom: 0.2em solid pink;
+}
+
+.cardImage{
+  /* border: 2px solid yellow; */
+  height: 16rem;
+}
+
+.cardData{
+    margin-left: 0.4rem;
+    /* background-color: cadetblue;
+    border: 2px solid rgb(92, 62, 38); */
+    height: 16rem;
+
+}
+
+h4{
+    font-size: 1.4rem;
+}
+
+#post_body{
+    font-size: 1rem;
+}
+
+.cardMeta{
+    display: flex;
+    justify-content: space-between;
+}
+.a-tag{
+
+    align-self: center;
+}
+.read-more-link {
+    color: red;
+    margin-left: auto;
+    margin-right: 5rem;
+  }
+
+  .post-date , .author-name{
+    font-size: small;
+    align-self: center;
+  }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= locals.title %></title>
+  <meta name="description" content="<%= locals.description %>">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" defer src="/js/script.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="fmenubar">
+      <%- include('../partials/header.ejs')  %>
+      <%- include('../partials/search.ejs')  %>
+      <%- include('../partials/addone.ejs')  %>
+    </div>
+    
+    <div class="body">
+
+        <%- include('../partials/lift_sideadds.ejs')  %>
+ 
+      <main class="main">
+        <%- body %>
+      </main>
+
+        <%- include('../partials/right_sideadds.ejs')  %>
+    
+    </div>
+   
+
+    <div>
+      <%- include('../partials/footeradds.ejs')  %>
+      <%- include('../partials/bactTotop.ejs')  %>
+      <%- include('../partials/footer.ejs')  %>
+    </div>
+
+  </div>  
+
+</body>
+</html>

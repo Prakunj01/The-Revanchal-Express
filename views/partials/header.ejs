@@ -1,0 +1,86 @@
+
+
+<header class="header">
+  
+ 
+  <div class="headone" >
+    <div class="logo">
+      <a href="/" class="header__logo">##</a> 
+    </div>
+   
+    <div class="mainheading">
+      The Revanchal Express
+    </div>
+    
+  </div>
+
+
+
+    <!-- Update your navigation bar in your EJS template -->
+
+    <nav class="menubar">
+      <div class="navbar">
+        <a href="/" class="<%= isActiveRoute('/', currentRoute) %> active-link">Home</a>
+        <a href="/category/College" class="<%= isActiveRoute('/category/College', currentRoute) %> active-link">College</a>
+        <a href="/category/Policies" class="<%= isActiveRoute('/category/Policies', currentRoute) %> active-link">Policies</a>
+        
+        <!-- Dropdown for "Article" category -->
+        <div class="dropdown">
+          <button class="dropbtn active-link <%= isActiveRoute('/category/article', currentRoute) %>" onclick="toggleDropdown()">Article</button>
+          <div class="dropdown-content" id="articleDropdown">
+            <a href="/category/Article-Ayurvedic" class="<%= isActiveRoute('/category/Article-Ayurvedic', currentRoute) %> active-link">Ayurvedic</a>
+            <a href="/category/Article-MBBS" class="<%= isActiveRoute('/category/Article-MBBS', currentRoute) %> active-link">MBBS</a>
+            <a href="/category/Article-Agriculture" class="<%= isActiveRoute('/category/Article-Agriculture', currentRoute) %> active-link">Agriculture</a>
+            <a href="/category/Article-Engineering" class="<%= isActiveRoute('/category/Article-Engineering', currentRoute) %> active-link">Engineering</a>
+          </div>
+        </div>
+        
+        <a href="/category/Jobs" class="<%= isActiveRoute('/category/Jobs', currentRoute) %> active-link">Jobs</a>
+        <a href="/category/Governance" class="<%= isActiveRoute('/category/Governance', currentRoute) %> active-link">Governance</a>
+        <a href="/category/Laws" class="<%= isActiveRoute('/category/Laws', currentRoute) %> active-link">Laws</a>
+        <a href="/category/Amendments" class="<%= isActiveRoute('/category/Amendments', currentRoute) %> active-link">Amendments</a>
+        <a href="/category/Technology" class="<%= isActiveRoute('/category/Technology', currentRoute) %> active-link">Tech</a>
+        <a href="/category/Art&Culture" class="<%= isActiveRoute('/category/Art&Culture', currentRoute) %> active-link">Art & Culture</a>
+        <a href="/category/Tourism" class="<%= isActiveRoute('/category/Tourism', currentRoute) %> active-link">Tourism</a>
+      </div>
+    </nav>
+
+</header>
+
+<!-- JavaScript (you may include this in a separate script tag or an external file) -->
+<script>
+
+// for nav bar ---------------------------------------------
+// Get the current route or URL 
+var currentRoute = window.location.pathname;
+
+// Find the corresponding link and add the active-link class
+var links = document.querySelectorAll('.navbar a');
+links.forEach(function(link) {
+  if (link.getAttribute('href') === currentRoute) {
+    link.classList.add('active-link');
+  } else {
+    link.classList.remove('active-link');
+  }
+});
+// for nav bar ---------------------------------------------
+
+
+  function toggleDropdown() {
+    var dropdown = document.getElementById("articleDropdown");
+    dropdown.classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>

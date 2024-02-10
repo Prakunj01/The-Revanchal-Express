@@ -1,0 +1,40 @@
+<h1>Contact</h1>
+<div>
+    <% if (posts.length > 0) { %>
+      <ul>
+        <% posts.forEach(post => { %>
+          <li>
+            <h2><%= post.title %></h2>
+            <p><%= post.body %></p>
+            <!-- Display the image -->
+            <img src="<%= post.image %>" alt="<%= post.title %> Image">
+  
+            <!-- Display the date and author information -->
+            <p class="card-meta">
+              <span class="post-date"><%= formatDate(post.createdAt) %></span>
+              <span class="author-name">By <%= post.authorName %></span>
+            </p>
+            <!-- Add more fields as needed -->
+          </li>
+        <% }); %>
+      </ul>
+  
+      <!-- Pagination Links -->
+      <div class="pagination">
+        <% if (page > 1) { %>
+          <a href="?page=<%= parseInt(page) - 1 %>">Previous</a>
+        <% } %>
+  
+        <% for (let i = 1; i <= totalPages; i++) { %>
+          <a href="?page=<%= i %>" class="<%= i == page ? 'active' : '' %>"><%= i %></a>
+        <% } %>
+  
+        <% if (page < totalPages) { %>
+          <a href="?page=<%= parseInt(page) + 1 %>">Next</a>
+        <% } %>
+      </div>
+      
+    <% } else { %>
+      <p>No articles found in the category.</p>
+    <% } %>
+  </div>

@@ -1,0 +1,129 @@
+<head>
+  <link rel="stylesheet" href="/css/cards.css">
+  <link rel="stylesheet" href="/css/Topcards.css">
+</head>
+
+<% function truncateText(text, maxLength) { 
+  const words=text.split(' ');
+  const truncatedWords = words.slice(0, maxLength);
+  return truncatedWords.join(' ');
+} %>
+
+<% function formatDate(date) {
+  const options = {
+    weekday: 'short', 
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true, 
+    timeZone: 'UTC', 
+  };
+  
+  const formattedDate = date.toLocaleDateString('en-US', options);
+  return formattedDate;
+} %>
+
+<!-- ............................Section one ......................... -->
+<div class="centerpart">
+
+<!-- ........................Left Section ............................................... -->
+  <div class="left_section">
+    <% data.slice(1, 3).forEach(post => { %>
+
+      <div class="leftcardBody">
+        <img class="leftcardImage" src="/uploads/<%= post.image %>" alt="Image" height="100vh">
+        <a class="a-tag" href="/post/<%= post._id %>">
+          <div class="leftcardText">
+            <h4><%= truncateText(post.title, 10) %> </h4>
+          </div>
+        </a>
+      </div> 
+      <% }) %>
+  </div>
+
+<!-- ........................Central Section ............................................... -->
+<div class="centen_section">
+    <% data.slice(0, 1).forEach(post => { %>
+
+      <!-- <h2> Big News Today </h2> -->
+      <div class="centralcardBody">
+        <div class="centralcardImage" >
+          <img src="/uploads/<%= post.image %>" alt="Image" height="220vh">
+
+        </div>
+        <a class="a-tag" href="/post/<%= post._id %>">
+            <h4 class="centralcardText"><%= truncateText(post.title, 30)  %> </h4>
+        </a>
+
+      </div>
+    <% }) %>
+  </div>
+  
+<!-- ........................Right Section ............................................... -->
+  <div class="right_section">
+    <% data.slice(3, 5).forEach(post => { %>
+
+      <div class="rightcardBody">
+
+        <img class="rightcardImage" src="/uploads/<%= post.image %>" alt="Image" height="100vh" width="180vw">
+         <a class="a-tag" href="/post/<%= post._id %>">
+            <h4  class="rightcardText"><%= truncateText(post.title, 9) %> </h4>
+        </a>
+
+      </div>
+      <% }) %>
+    </div>
+  
+   
+
+</div> 
+
+  <!-- .......................  Section Two ............................ -->
+  <section class="articles">
+    <h2 class="articles__heading">Latest News</h2>
+
+    <ul class="article-ul">
+      <% data.slice(2).forEach(post=> { %>
+
+        <li>
+          <div class="cardBody">
+
+            <div class="cardImage">
+              <img src="/uploads/<%= post.image %>" alt="Image" height="150px" width="220px">
+            </div>
+
+            <div class="cardData" id="horizontal-line">
+              <h4>
+                <%= post.title %>
+              </h4>
+              <p id="post_body">
+                <%= truncateText(post.body, 30) %>...
+              </p>
+              <div class="cardMeta">
+                <p>
+                  <span class="post-date">
+                    <%= formatDate(post.createdAt) %>
+                  </span>
+
+
+                </p>
+
+                <a class="a-tag" href="/post/<%= post._id %>">
+                  <button class="read-more-link">Read More</button>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </li>
+        <% }) %>
+    </ul>
+
+
+    <% if (nextPage !==null) { %>
+      <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+      <% } %>
+
+  </section>
