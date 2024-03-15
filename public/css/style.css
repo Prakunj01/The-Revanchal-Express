@@ -20,7 +20,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--black);
   font-size: var(--font-size-base);
-  /* background-color: #b46d08; */
+  background-color: aliceblue;
   /* background-image: url("/img/img-noise-361x370.png"); */
   /* margin: 0; */
   overflow-x: hidden;
@@ -65,14 +65,15 @@ textarea {
 
 /* headone -----------------------------*/
 .headone{
-  background-color: white;
+  background-color: aliceblue;
+  color: #2b2828;
   display: grid;
   grid-template-columns: 1fr 5fr;
   /* border: 5px solid black; */
 }
 
 .logo{
-  background-color: rgb(241, 251, 255);
+  /* background-color: rgb(241, 251, 255); */
   max-height: 15vh;
   justify-content: center;
   justify-self: center;
@@ -120,8 +121,9 @@ textarea {
   display: flex;
   justify-content: space-between;
   filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
-  box-shadow: 0px 3px 1px #c9c4c4;
-  background-color: white;
+  box-shadow: 0px 3px 1px hsl(0, 4%, 78%);
+  background-color: aliceblue;
+  color: #2b2828;
   margin-top: 0.8rem;
   width: 100%;
   width: 100%;
@@ -137,7 +139,7 @@ textarea {
 
 .navbar a {
   text-decoration: none;
-  color: #333; 
+  color: #2b2828;
   padding: 5px 10px;
   /* border: 1px solid #ddd; */
   border-radius: 5px;
@@ -147,7 +149,7 @@ textarea {
 
 /* Optional: Style for active link */
 .navbar a:hover{
-  background-color: #f3fdfd; 
+  background-color: #83dbdb; 
 }
 .navbar a.active-link{
   color: #fc1818;
@@ -155,7 +157,8 @@ textarea {
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #ffffff;
+  background-color: aliceblue;
+  color: #2b2828;
   padding: 14px;
   font-size: 16px;
   border: none;
@@ -204,6 +207,8 @@ textarea {
 
 /* ....................................... Home Article List .................................. */
 .articles__heading {
+  background-color: aliceblue;
+
   margin-top: 4rem;
   font-weight: 400;
 }
@@ -330,7 +335,7 @@ textarea {
   /* border: 2px solid brown; */
 }
 .BackTotop{
-  color: #1a1818;
+  color: #ddd8d8;
   /* border: 5px solid red; */
   padding: 10px;
   /* margin-left: 25em; */
@@ -340,12 +345,14 @@ textarea {
   font-weight: 500;
   font-size: 26px;
   text-decoration: none;
-  border: 2px solid black;
+  background-color: #c9c4c4;
+
+  border: 2px solid rgb(252, 252, 252);
   border-radius: 10px;
-  padding: 3px;
+  padding: 0.7rem;
 }
 .BackTotop a:hover{
-  background-color: #83c3ee;
+  background-color: #415a8f;
 }
 
 
@@ -367,7 +374,7 @@ footer{
   margin-top: 5em;
   margin-top: 53vh;
   color: #c9c4c4;
-  background-color: #1a1818;
+  background-color: #3d3934;
 }
 
 
@@ -382,7 +389,7 @@ footer{
   border-top: 1px solid var(--lightgrey);
   /* position: relative; */
   color: #c9c4c4;
-  background-color: #1a1818;
+  background-color: #3d3934;
 }
 
 .footersociallinkContainer{
